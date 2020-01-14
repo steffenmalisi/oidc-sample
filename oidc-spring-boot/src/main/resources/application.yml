@@ -1,0 +1,20 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          kc:
+            provider: kc
+            client-id: oidc-spring-boot
+            client-secret: 5215990d-9e4a-4d10-803f-64777452dee9
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          kc:
+            issuer-uri: http://localhost:8080/auth/realms/malis.io
+
+server:
+  port: 8887
+

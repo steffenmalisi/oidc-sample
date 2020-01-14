@@ -1,0 +1,48 @@
+body {
+  font-size: 10pt;
+}
+
+h1 {
+  font-size: 20pt;
+}
+
+h2 {
+  font-size: 14pt;
+}
+
+div.success-msg {
+  font-size: 25pt;
+}
+
+div.success-sign {
+  padding: 12px 20px 12px 20px;
+  border: 1px solid #1e7e34;
+  border-radius: .25rem;
+  margin-right: 5px;
+}
+
+i.success-ico {
+  color: #218838;
+  font-size: 38pt;
+}
+
+#home {
+  font-size: 30pt;
+}
+
+.content {
+  padding-top: 20px;
+}
+
+pre {
+  min-height: 30px;
+  background-color: beige;
+}
+
+div.tkn {
+  margin-top: 50px;
+}
+
+div.tkn-box {
+  margin-top: 50px;
+}

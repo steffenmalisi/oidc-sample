@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!--/*/
+    <th:block th:include="header.html :: header" />
+  /*/-->
+</head>
+<body>
+
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><i id="home" class="fas fa-barcode"></i></a>
+
+  <div class="ml-md-auto" th:if="${userName} != null">
+    <span class="navbar-text" th:text="${userName}">${userName}</span>
+    <a class="btn btn-sm btn-danger" href="/logout">Logout</a>
+  </div>
+</header>
+
+
+<div class="content container-fluid">
+
+  <div class="container-fluid">
+    <div class="clearfix">
+      <div class="float-left success-sign">
+        <i class="fas fa-check-circle success-ico"></i>
+      </div>
+      <div class="alert alert-success success-msg float-left ">
+        <span>You are now successfully logged in</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid tkn-box">
+
+    <h1> Here is some information what this app received from the OIDC Provider</h1>
+
+    <div th:replace="tkn-info :: tkn-info(
+      ${accessToken},
+      'access_token',
+      'Access tokens are credentials used to access protected resources.',
+      'https://tools.ietf.org/html/rfc6749#section-1.4')">
+    </div>
+
+    <div th:replace="tkn-info :: tkn-info(
+      ${refreshToken},
+      'refresh_token',
+      'Refresh tokens are credentials used to obtain access tokens.',
+      'https://tools.ietf.org/html/rfc6749#section-1.5')">
+    </div>
+
+    <div th:replace="tkn-info :: tkn-info(
+      ${idToken},
+      'id_token',
+      'The ID Token is a security token that contains Claims about the Authentication of an End-User by an Authorization Server when using a Client, and potentially other requested Claims',
+      'https://openid.net/specs/openid-connect-core-1_0.html#IDToken')">
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!--/*/
+  <th:block th:include="header.html :: scripts" />
+/*/-->
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+
+<div
+    class="tkn"
+    th:fragment="tkn-info(tkn, type, desc, href)"
+    th:assert="${!#strings.isEmpty(tkn) and !#strings.isEmpty(type) and !#strings.isEmpty(desc) and !#strings.isEmpty(href)}">
+
+  <h2 th:text="${type}">Token</h2>
+  <p th:text="${desc}"></p>
+  <pre class="pre-scrollable"><code th:id="${type}" th:text="${tkn}"></code></pre>
+  <button class="btn btn-copy btn-sm btn-success" th:attr="data-clipboard-target='#' + ${type}">Copy</button>
+  <a class="btn btn-sm btn-dark" th:href="@{https://jwt.io/#debugger(token=${tkn})}" target="_blank" href="#">Debug on jwt.io</a>
+  <a class="btn btn-sm btn-dark" th:href="${href}" target="_blank" href="#">Official Specification</a>
+</div>
+
+</body>
